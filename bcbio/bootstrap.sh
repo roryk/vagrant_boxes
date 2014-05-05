@@ -7,7 +7,7 @@ sudo apt-get install -y libz-dev
 mkdir tmp
 cd tmp
 wget https://raw.github.com/chapmanb/bcbio-nextgen/master/scripts/bcbio_nextgen_install.py
-sudo python bcbio_nextgen_install.py /usr/local/share/bcbio-nextgen --tooldir=/usr/local --nodata
+sudo python bcbio_nextgen_install.py /usr/local/share/bcbio-nextgen --tooldir=/usr/local/bcbio --nodata
 cd ~
 echo "export PATH=/usr/local/share/bcbio-nextgen/bin:$PATH" >> .bashrc
 echo "set -o vi" >> .bashrc
