@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
 
+
   config.vm.box = "ubuntu_nextgen"
   config.vm.box_url = "http://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-vagrant-amd64-disk1.box"
   config.vm.provision :shell, :path => "bootstrap.sh"
@@ -32,7 +33,8 @@ Vagrant.configure("2") do |config|
   # your network.
   # config.vm.network :public_network
   config.vm.synced_folder "/Volumes/Clotho/Users/rory/cache", "/v-data", :nfs => true
-  config.vm.synced_folder "/Volumes/Clotho/bcbio-nextgen", "/usr/local/share/bcbio-nextgen", :owner=> 'vagrant', :mount_options => ['dmode=777', 'fmode=777']
+  config.vm.synced_folder "/Volumes/Clotho/bcbio-nextgen", "/bcbio-tmp", :type => "nfs"
+  config.bindfs.bind_folder "/bcbio-tmp", "/bcbio-nextgen"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
