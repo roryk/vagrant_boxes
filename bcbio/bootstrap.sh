@@ -2,6 +2,7 @@ wget https://raw.github.com/chapmanb/bcbio-nextgen/master/scripts/bcbio_nextgen_
 sudo apt-get install git
 sudo apt-get install nodejs
 python bcbio_nextgen_install.py /home/vagrant/local/share/bcbio --tooldir=/home/vagrant/local --nodata
+python bcbio_nextgen_install.py /home/vagrant/local/share/bcbio --tooldir=/home/vagrant/local --genomes GRCh37 --aligners bowtie2 --datatarget rnaseq
 bcbio_nextgen.py upgrade -u development
 sudo apt-get install docker-engine
 sudo apt-get update
@@ -12,5 +13,6 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee -a /
 sudo apt-get update
 apt-cache policy docker-engine
 sudo apt-get install docker-engine
+sudo gpasswd -a ${USER} docker
 sudo service docker start
 sudo docker run hello-world
