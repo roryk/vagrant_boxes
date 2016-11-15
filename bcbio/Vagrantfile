@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "/Volumes/Clotho/bcbio-nextgen", "/bcbio-nextgen",
        id: "project", owned: "rory", group: "staff", mount_options: ["dmode=755,fmode=664"]
   config.vm.provider :virtualbox do |vb|
-    vb.memory = 6000
+    vb.memory = 2000
     vb.cpus = 1
   end
 end
