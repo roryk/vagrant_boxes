@@ -23,3 +23,8 @@ sudo docker run hello-world
 git clone https://github.com/roryk/bioconda-recipes.git
 cd bioconda-recipes/
 git remote add upstream https://github.com/bioconda/bioconda-recipes.git
+
+# install dependencies
+conda install -y conda-build
+conda install -y anaconda-client
+pip install git+https://github.com/bioconda/bioconda-utils.git
