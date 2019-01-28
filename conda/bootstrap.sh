@@ -38,3 +38,6 @@ conda config --add channels r
 conda config --add channels bioconda
 pip install git+https://github.com/bioconda/bioconda-utils.git
 pip install PyGithub
+
+# install circleci
+curl -fLSs https://circle.ci/cli | sudo bash
