@@ -8,6 +8,8 @@ bash Miniconda3-latest-Linux-x86_64.sh -b
 echo 'export PATH=${HOME}/miniconda3/bin/:${PATH}' >> ${HOME}/.bashrc
 export PATH=${HOME}/miniconda3/bin/:${PATH}
 
+echo 'set -o vi' >> ${HOME}/.bashrc
+
 # install docker
 sudo apt-get update -y
 sudo apt-get install apt-transport-https ca-certificates -y
