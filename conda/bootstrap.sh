@@ -41,3 +41,5 @@ pip install PyGithub
 
 # install circleci
 curl -fLSs https://circle.ci/cli | sudo bash
+
+echo "Log out and log back in to make cirlceci work correctly."
