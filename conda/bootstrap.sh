@@ -1,11 +1,12 @@
-# setup git
 sudo apt-get install git -y
 git config --global user.name "roryk"
 git config --global user.email = "rory.kirchner@gmail.com"
 
 # install conda
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -b
+bash Miniconda3-latest-Linux-x86_64.sh -b
+echo 'export PATH=${HOME}/miniconda3/bin/:${PATH}' >> ${HOME}/.bashrc
+export PATH=${HOME}/miniconda3/bin/:${PATH}
 
 # install docker
 sudo apt-get update -y
@@ -15,11 +16,13 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee -a /
 sudo apt-get update -y
 apt-cache policy docker-engine
 sudo apt-get install docker-engine -y
-sudo gpasswd -a ${USER} docker 
+sudo gpasswd -a ${USER} docker
 sudo service docker start
 sudo docker run hello-world
 
 # setup bioconda
+mkdir cache
+cd cache
 git clone https://github.com/roryk/bioconda-recipes.git
 cd bioconda-recipes/
 git remote add upstream https://github.com/bioconda/bioconda-recipes.git
@@ -27,4 +30,9 @@ git remote add upstream https://github.com/bioconda/bioconda-recipes.git
 # install dependencies
 conda install -y conda-build
 conda install -y anaconda-client
+conda config --add channels conda-forge
+conda config --add channels defaults
+conda config --add channels r
+conda config --add channels bioconda
 pip install git+https://github.com/bioconda/bioconda-utils.git
+pip install PyGithub
